@@ -4,10 +4,12 @@ from django.http.response import HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Index")
+    return render(request, 'index.html')
 
 def movies(request):
-    return HttpResponse("Movies")
+    return render(request, 'movies.html')
 
 def movie_details(request, slug):
-    return HttpResponse("Movie Detail: " + slug)
+    return render(request, 'movie_detail.html', {
+        "slug": slug
+    })
